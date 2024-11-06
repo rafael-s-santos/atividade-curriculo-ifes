@@ -10,11 +10,16 @@ body {
 
 h1, h2, h3 {
     text-transform: uppercase;
-    color: #3b3b3b;
+    
+}
+
+h3 {
+    color: #2c9701;
 }
 
 h1, h2 {
     text-align: center;
+    color: #046f02;
 }
 
 ul {
@@ -26,7 +31,7 @@ li {
 }
 
 ul, p {
-    color:#626262;
+    color:#000;
 }
 
 .container {
@@ -58,6 +63,9 @@ header {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    position: sticky;
+    top: 0; 
+    height: fit-content;
 }
 
 .contact ul, .skills ul, .education ul, .languages ul {
@@ -76,7 +84,9 @@ header {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    overflow-y: auto;
+    overflow-y: auto; 
+    max-height: calc(100vh - 2 * 1rem);
+    text-align: justify;
 }
 
 .contact-item {
@@ -85,8 +95,8 @@ header {
     gap: 0.5rem;
 }
 
-.contact-item a{
-    color:#626262;
+.contact-item a {
+    color: #626262;
 }
 
 .profile p {
@@ -110,7 +120,6 @@ header, footer, .profile, .experience, .contact, .skills, .education, .languages
 
 footer {
     grid-area: footer;
-    
     padding: 1rem;
     text-align: center;
     display: flex;
@@ -123,4 +132,37 @@ footer ul {
     display: flex;
     gap: 1rem;
     list-style: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "content";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+    }
+
+    .sidebar {
+        display: flex;
+    }
+
+    .content {
+        padding: 1rem;
+        overflow-y: visible;
+        height: auto;
+    }
+
+    footer ul {
+        flex-direction: column;
+    }
+
+    .interests {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
 }
